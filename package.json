@@ -1,0 +1,13 @@
+{
+  "name": "flotsam-portfolio",
+  "version": "1.0.0",
+  "description": "Flotsam Studio de montage vidéo portfolio",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'No build step required for static site'"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.1.1"
+  }
+}
