@@ -54,7 +54,9 @@
 <script type="text/babel" src="./src/Contact.jsx"></script>
 <script type="text/babel" src="./src/Footer.jsx"></script>
 
-<script type="text/babel">
+<script type="text/babel" data-type="module">
+  import { SpeedInsights } from 'https://unpkg.com/@vercel/speed-insights@2.0.0/dist/react/index.mjs';
+
   function App() {
     const jump = (id) => {
       if (id === 'hero') {
@@ -81,6 +83,7 @@
           <Contact />
         </main>
         <Footer onJumpTo={jump} />
+        <SpeedInsights />
       </>
     );
   }
