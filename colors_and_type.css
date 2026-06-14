@@ -1,0 +1,213 @@
+/* =========================================================================
+   Flotsam Production — Colors & Type
+   -------------------------------------------------------------------------
+   Single source of truth for color + typography tokens.
+   Import once at the top of any prototype / UI kit.
+   ========================================================================= */
+
+/* Satoshi — the brand's only typeface. Indian Type Foundry, designer Deni Anggara.
+   5 weights × roman + italic = 10 cuts. Self-hosted from /fonts. */
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-Light.otf')        format('opentype'); font-weight: 300; font-style: normal;  font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-LightItalic.otf')  format('opentype'); font-weight: 300; font-style: italic;  font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-Regular.otf')      format('opentype'); font-weight: 400; font-style: normal;  font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-Italic.otf')       format('opentype'); font-weight: 400; font-style: italic;  font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-Medium.otf')       format('opentype'); font-weight: 500; font-style: normal;  font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-MediumItalic.otf') format('opentype'); font-weight: 500; font-style: italic;  font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-Bold.otf')         format('opentype'); font-weight: 700; font-style: normal;  font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-BoldItalic.otf')   format('opentype'); font-weight: 700; font-style: italic;  font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-Black.otf')        format('opentype'); font-weight: 900; font-style: normal;  font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-BlackItalic.otf')  format('opentype'); font-weight: 900; font-style: italic;  font-display: swap; }
+
+:root {
+  /* -----------------------------------------------------------------------
+     COLOR — 4 colors. One signature.
+     Ratios (per brandbook §07): 60% anthracite · 30% paper · 7% violet · 3% gold
+     ----------------------------------------------------------------------- */
+
+  /* Base tokens */
+  --fp-anthracite: #272932;     /* Deep Anthracite — fond principal */
+  --fp-paper:      #FEFEFE;     /* Paper White — fond alternatif */
+  --fp-violet:     #772CE8;     /* Signal Violet — signature / accent UNIQUE */
+  --fp-gold:       #F2CD60;     /* Low Gold — highlight exceptionnel */
+
+  /* Derived neutrals — scaled from anthracite, used sparingly.
+     Kept dim so violet stays the only active color. */
+  --fp-ink-900:    #1A1C22;     /* Deeper than anthracite — inlay, overlay base */
+  --fp-ink-800:    #272932;     /* = anthracite */
+  --fp-ink-700:    #33353F;     /* Card surface on dark */
+  --fp-ink-600:    #4A4D58;     /* Borders on dark */
+  --fp-ink-500:    #6E717D;     /* Muted text on dark */
+  --fp-ink-400:    #9A9CA5;     /* Secondary text on dark */
+  --fp-ink-300:    #C7C8CE;     /* Low-emphasis text on paper */
+  --fp-ink-200:    #E4E5E8;     /* Divider on paper */
+  --fp-ink-100:    #F1F1F3;     /* Surface tint on paper */
+
+  /* Semantic — dark mode (default / dominant) */
+  --fp-bg:              var(--fp-anthracite);
+  --fp-bg-elevated:     var(--fp-ink-700);
+  --fp-bg-inset:        var(--fp-ink-900);
+  --fp-fg:              var(--fp-paper);
+  --fp-fg-muted:        var(--fp-ink-400);
+  --fp-fg-subtle:       var(--fp-ink-500);
+  --fp-border:          var(--fp-ink-600);
+  --fp-border-subtle:   rgba(254, 254, 254, 0.08);
+  --fp-accent:          var(--fp-violet);
+  --fp-accent-fg:       var(--fp-paper);
+  --fp-highlight:       var(--fp-gold);
+
+  /* Semantic — light mode (respiration, pages techniques) */
+  --fp-bg-light:            var(--fp-paper);
+  --fp-fg-light:            var(--fp-anthracite);
+  --fp-fg-light-muted:      var(--fp-ink-500);
+  --fp-border-light:        var(--fp-ink-200);
+  --fp-border-light-subtle: rgba(39, 41, 50, 0.08);
+
+  /* -----------------------------------------------------------------------
+     TYPE — Satoshi only. Hierarchy via weight + scale + spacing.
+     ----------------------------------------------------------------------- */
+  --fp-font:            'Satoshi', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --fp-font-mono:       'Satoshi', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --fp-weight-light:    300;
+  --fp-weight-regular:  400;
+  --fp-weight-medium:   500;
+  --fp-weight-bold:     700;
+  --fp-weight-black:    900;
+
+  /* Scale — 7 sizes, brand-locked. Ratio ≈ 1.5 between display levels. */
+  --fp-size-display-xxl: 144px;  /* hero mot unique */
+  --fp-size-display-xl:  96px;   /* titre de section */
+  --fp-size-display-l:   64px;   /* sous-titre éditorial */
+  --fp-size-heading-m:   32px;   /* titre de carte / projet */
+  --fp-size-body-l:      20px;   /* lead / intro */
+  --fp-size-body:        16px;   /* corps standard */
+  --fp-size-label:       12px;   /* tag / méta / timecode */
+
+  /* Line-heights — tight on displays, comfortable on body */
+  --fp-leading-display:  0.95;
+  --fp-leading-heading:  1.1;
+  --fp-leading-body:     1.5;
+  --fp-leading-label:    1.2;
+
+  /* Tracking */
+  --fp-tracking-display: -0.02em;
+  --fp-tracking-body:    0em;
+  --fp-tracking-label:   0.18em;   /* uppercase labels */
+
+  /* -----------------------------------------------------------------------
+     LAYOUT — 8px baseline, 12 cols, 1440 container
+     ----------------------------------------------------------------------- */
+  --fp-space-1:  8px;
+  --fp-space-2:  16px;
+  --fp-space-3:  24px;
+  --fp-space-4:  32px;
+  --fp-space-5:  48px;
+  --fp-space-6:  64px;
+  --fp-space-7:  96px;
+  --fp-space-8:  120px;
+  --fp-space-9:  160px;
+
+  --fp-container: 1440px;
+  --fp-margin-desktop: 96px;
+  --fp-margin-mobile:  24px;
+  --fp-gutter-desktop: 24px;
+  --fp-gutter-mobile:  16px;
+
+  /* -----------------------------------------------------------------------
+     RADII — minimal. Brand is flat + editorial.
+     ----------------------------------------------------------------------- */
+  --fp-radius-0: 0px;     /* default — rectangles are the brand */
+  --fp-radius-1: 2px;     /* buttons, inputs */
+  --fp-radius-2: 4px;     /* cards */
+  --fp-radius-pill: 999px;/* status pills (violet plein) only */
+
+  /* -----------------------------------------------------------------------
+     MOTION — tokens from brandbook §10
+     "Cut, don't fade." Curves are tight, never bouncy.
+     ----------------------------------------------------------------------- */
+  --fp-dur-micro:   120ms;  /* hover, focus, instant feedback */
+  --fp-dur-ui:      280ms;  /* menu open, button state */
+  --fp-dur-reveal:  640ms;  /* section / title reveal */
+  --fp-dur-nav:     900ms;  /* route / project transition */
+
+  --fp-ease:        cubic-bezier(0.65, 0, 0.35, 1);  /* primary — cut-like */
+  --fp-ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);   /* long reveals only */
+
+  /* -----------------------------------------------------------------------
+     BORDERS — thin, ink, never soft
+     ----------------------------------------------------------------------- */
+  --fp-border-hair: 1px solid var(--fp-border-subtle);
+  --fp-border-line: 1px solid var(--fp-border);
+}
+
+/* =========================================================================
+   BASE — applies Satoshi + anthracite canvas everywhere.
+   ========================================================================= */
+html, body {
+  background: var(--fp-bg);
+  color: var(--fp-fg);
+  font-family: var(--fp-font);
+  font-size: var(--fp-size-body);
+  line-height: var(--fp-leading-body);
+  font-weight: var(--fp-weight-regular);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* =========================================================================
+   SEMANTIC TYPE CLASSES — use these; don't hand-roll sizes.
+   ========================================================================= */
+.fp-display-xxl,
+.fp-display-xl,
+.fp-display-l,
+.fp-h1, .fp-h2, .fp-h3 {
+  font-family: var(--fp-font);
+  letter-spacing: var(--fp-tracking-display);
+  line-height: var(--fp-leading-display);
+  text-wrap: balance;
+}
+
+.fp-display-xxl { font-size: var(--fp-size-display-xxl); font-weight: var(--fp-weight-black); }
+.fp-display-xl  { font-size: var(--fp-size-display-xl);  font-weight: var(--fp-weight-black); }
+.fp-display-l   { font-size: var(--fp-size-display-l);   font-weight: var(--fp-weight-bold); line-height: var(--fp-leading-heading); }
+
+.fp-h1 { font-size: var(--fp-size-display-xl);  font-weight: var(--fp-weight-black); }
+.fp-h2 { font-size: var(--fp-size-display-l);   font-weight: var(--fp-weight-bold);  line-height: var(--fp-leading-heading); }
+.fp-h3 { font-size: var(--fp-size-heading-m);   font-weight: var(--fp-weight-bold);  line-height: var(--fp-leading-heading); }
+
+.fp-lead {
+  font-size: var(--fp-size-body-l);
+  font-weight: var(--fp-weight-regular);
+  line-height: var(--fp-leading-body);
+  max-width: 65ch;
+}
+
+.fp-body {
+  font-size: var(--fp-size-body);
+  font-weight: var(--fp-weight-regular);
+  line-height: var(--fp-leading-body);
+}
+
+.fp-label {
+  font-size: var(--fp-size-label);
+  font-weight: var(--fp-weight-medium);
+  line-height: var(--fp-leading-label);
+  letter-spacing: var(--fp-tracking-label);
+  text-transform: uppercase;
+}
+
+/* Signature violet accent — the "point" that punctuates brand name */
+.fp-accent-dot {
+  color: var(--fp-accent);
+}
+
+/* =========================================================================
+   UTILITY
+   ========================================================================= */
+.fp-surface-dark  { background: var(--fp-bg); color: var(--fp-fg); }
+.fp-surface-light { background: var(--fp-bg-light); color: var(--fp-fg-light); }
+.fp-surface-violet{ background: var(--fp-violet); color: var(--fp-paper); }
+
+.fp-muted  { color: var(--fp-fg-muted); }
+.fp-subtle { color: var(--fp-fg-subtle); }

@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Mentions légales — Flotsam Production</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Mentions légales du site flotsam-production.com — éditeur, hébergement, propriété intellectuelle, RGPD.">
+<meta name="robots" content="noindex,follow">
+
+<link rel="stylesheet" href="colors_and_type.css">
+
+<style>
+/* =========================================================================
+   Legal page — sober, linear, no animations.
+   ========================================================================= */
+:root {
+  --bg:        #272932;
+  --bg-deeper: #1A1C22;
+  --fg:        #FEFEFE;
+  --fg-body:   #C7C8CE;
+  --fg-muted:  #9A9CA5;
+  --fg-dim:    #6E717D;
+  --accent:    #772CE8;
+  --border:    rgba(254, 254, 254, 0.08);
+  --container: 900px;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg-body);
+  font-family: 'Satoshi', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+::selection { background: var(--accent); color: var(--fg); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------- NAV ---------- */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 48px;
+  background: rgba(26, 28, 34, 0.72);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border-bottom: 1px solid var(--border);
+}
+.nav__brand img {
+  width: 56px; height: 56px;
+  object-fit: cover; object-position: center;
+  border-radius: 60%;
+}
+.nav__links { display: flex; gap: 36px; align-items: center; }
+.nav__link {
+  font-size: 13px; font-weight: 500; color: var(--fg);
+  letter-spacing: 0.04em; text-decoration: none;
+}
+.nav__link:hover { color: var(--accent); text-decoration: none; }
+.nav__cta {
+  display: inline-flex; align-items: center; gap: 14px;
+  padding: 10px 16px;
+  background: var(--accent); color: var(--fg); text-decoration: none;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+  border-radius: 2px;
+}
+.nav__cta:hover { background: var(--bg-deeper); text-decoration: none; }
+
+/* ---------- HERO ---------- */
+.hero { max-width: var(--container); margin: 0 auto; padding: 200px 32px 56px; }
+.hero__eyebrow {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--fg-dim);
+  margin: 0 0 18px;
+}
+.hero h1 {
+  margin: 0;
+  font-weight: 900;
+  font-size: clamp(40px, 5.5vw, 64px);
+  letter-spacing: -0.025em; line-height: 1.05;
+  color: var(--fg);
+}
+.hero__lead {
+  margin: 28px 0 0; max-width: 60ch;
+  font-size: 16.5px; line-height: 1.7; color: var(--fg-muted);
+}
+.hero__version {
+  margin: 28px 0 0;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--fg-dim);
+}
+
+/* ---------- TOC ---------- */
+.toc {
+  max-width: var(--container); margin: 0 auto;
+  padding: 32px 32px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.toc__label {
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--fg-dim); margin: 0 0 18px;
+}
+.toc__list {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 32px;
+}
+.toc__link {
+  display: flex; gap: 14px;
+  font-size: 14px; color: var(--fg-body);
+  text-decoration: none; padding: 4px 0;
+}
+.toc__link:hover { color: var(--accent); text-decoration: none; }
+.toc__num {
+  font-variant-numeric: tabular-nums;
+  color: var(--accent); font-weight: 500;
+  min-width: 24px;
+}
+
+/* ---------- ARTICLES ---------- */
+.doc { max-width: var(--container); margin: 0 auto; padding: 16px 32px 96px; }
+.article {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+}
+.article:first-of-type { border-top: none; }
+.article__num {
+  display: block;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.article h2 {
+  margin: 0 0 24px;
+  font-size: clamp(22px, 2.6vw, 28px);
+  font-weight: 700; letter-spacing: -0.015em; line-height: 1.25;
+  color: var(--fg);
+}
+.article h3 {
+  margin: 28px 0 10px;
+  font-size: 14px; font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+.article p {
+  margin: 0 0 14px;
+  font-size: 15.5px; line-height: 1.7;
+  color: var(--fg-body);
+}
+.article p strong { color: var(--fg); font-weight: 600; }
+.article ul {
+  margin: 10px 0 18px; padding-left: 22px;
+  font-size: 15.5px; line-height: 1.7; color: var(--fg-body);
+}
+.article li { margin: 6px 0; }
+.article li::marker { color: var(--accent); }
+
+/* ---------- FOOTER ---------- */
+.footer { padding: 80px 64px 40px; background: #151720; border-top: 1px solid var(--border); color: var(--fg-body); }
+.footer__inner { max-width: 1440px; margin: 0 auto; }
+.footer__wordmark { padding-bottom: 40px; border-bottom: 1px solid var(--border); }
+.footer__wordmark h3 {
+  margin: 0; font-weight: 900;
+  font-size: clamp(80px, 14vw, 220px);
+  letter-spacing: -0.04em; line-height: 0.88; color: var(--fg);
+}
+.footer__wordmark h3 .dot { color: var(--accent); }
+.footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding: 48px 0; }
+.footer__col-label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--fg-dim); margin-bottom: 16px; }
+.footer__col p { margin: 0; max-width: 36ch; font-size: 14px; line-height: 1.65; color: var(--fg-body); }
+.footer__col-links { display: grid; gap: 12px; }
+.footer__col-links a { color: var(--fg); text-decoration: none; font-size: 14px; font-weight: 500; }
+.footer__col-links a:hover { color: var(--accent); text-decoration: none; }
+.footer__instagram { display: inline-flex; align-items: center; color: var(--fg); text-decoration: none; }
+.footer__instagram:hover { color: var(--accent); }
+.footer__strip {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 32px; border-top: 1px solid var(--border);
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--fg-dim); flex-wrap: wrap; gap: 24px;
+}
+.footer__legal { display: flex; gap: 32px; }
+.footer__legal a { color: inherit; text-decoration: none; }
+.footer__legal a:hover { color: var(--accent); text-decoration: none; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 880px) {
+  .nav { padding: 12px 24px; }
+  .nav__links { gap: 20px; }
+  .hero { padding: 150px 24px 40px; }
+  .toc, .doc { padding-left: 24px; padding-right: 24px; }
+  .toc__list { grid-template-columns: 1fr; }
+  .footer { padding: 56px 24px 32px; }
+  .footer__grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+@media (max-width: 560px) {
+  .nav__link, .nav__cta { font-size: 11px; }
+  .nav__brand img { width: 44px; height: 44px; }
+  .footer__grid { grid-template-columns: 1fr; }
+  .footer__strip { flex-direction: column; align-items: flex-start; gap: 16px; }
+}
+@media print {
+  body { background: #fff; color: #000; }
+  .nav, .footer { display: none; }
+  .article a, .article h3, .article__num, .toc__num { color: #772CE8 !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a class="nav__brand" href="./Flotsam Portfolio.html">
+    <img src="uploads/logo%202025.png" alt="Flotsam" width="56" height="56">
+  </a>
+  <nav class="nav__links" aria-label="Navigation principale">
+    <a class="nav__link" href="./Flotsam Portfolio.html#temoignages">Témoignages</a>
+    <a class="nav__link" href="./Flotsam Portfolio.html#projects">Projets</a>
+    <a class="nav__link" href="./Flotsam Portfolio.html#creations">Créations</a>
+    <a class="nav__link" href="./Flotsam Portfolio.html#faq">FAQ</a>
+    <a class="nav__link" href="./Flotsam Portfolio.html#contact">Contact</a>
+    <a class="nav__cta" href="https://calendly.com/flotsam-prod/30min" target="_blank" rel="noopener noreferrer">
+      Réserver un appel <span aria-hidden="true">→</span>
+    </a>
+  </nav>
+</header>
+
+<section class="hero">
+  <p class="hero__eyebrow">Document légal</p>
+  <h1>Mentions légales</h1>
+  <p class="hero__lead">
+    Informations légales du site flotsam-production.com conformément à la loi
+    n°&nbsp;2004-575 du 21 juin 2004 pour la Confiance dans l'Économie Numérique.
+  </p>
+  <p class="hero__version">Version en vigueur au 28 mai 2025</p>
+</section>
+
+<nav class="toc" aria-label="Sommaire">
+  <p class="toc__label">Sommaire</p>
+  <ul class="toc__list">
+    <li><a class="toc__link" href="#art-1"><span class="toc__num">01</span>Éditeur du site</a></li>
+    <li><a class="toc__link" href="#art-2"><span class="toc__num">02</span>Directeur de la publication</a></li>
+    <li><a class="toc__link" href="#art-3"><span class="toc__num">03</span>Hébergeur du site</a></li>
+    <li><a class="toc__link" href="#art-4"><span class="toc__num">04</span>Conception et développement</a></li>
+    <li><a class="toc__link" href="#art-5"><span class="toc__num">05</span>Propriété intellectuelle</a></li>
+    <li><a class="toc__link" href="#art-6"><span class="toc__num">06</span>Responsabilité</a></li>
+    <li><a class="toc__link" href="#art-7"><span class="toc__num">07</span>Données personnelles (RGPD)</a></li>
+    <li><a class="toc__link" href="#art-8"><span class="toc__num">08</span>Cookies</a></li>
+    <li><a class="toc__link" href="#art-9"><span class="toc__num">09</span>Droit applicable</a></li>
+    <li><a class="toc__link" href="#art-10"><span class="toc__num">10</span>Mise à jour</a></li>
+  </ul>
+</nav>
+
+<main class="doc">
+
+  <article id="art-1" class="article">
+    <span class="article__num">Article 01</span>
+    <h2>Éditeur du site</h2>
+    <p>Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la Confiance dans l'Économie Numérique (LCEN), les présentes mentions légales sont portées à la connaissance des utilisateurs du site flotsam-production.com.</p>
+    <p>Le site flotsam-production.com est édité par&nbsp;:</p>
+    <ul>
+      <li>Nom et prénom&nbsp;: Paul Lynch</li>
+      <li>Nom commercial&nbsp;: Flotsam Production</li>
+      <li>Statut juridique&nbsp;: Auto-entrepreneur (micro-entreprise)</li>
+      <li>SIRET&nbsp;: 984 826 529 00013</li>
+      <li>Adresse&nbsp;: 2 rue Degly Maillot, 78124 Mareil-sur-Mauldre, Île-de-France, France</li>
+      <li>Email&nbsp;: <a href="mailto:contact@flotsam-production.com">contact@flotsam-production.com</a></li>
+      <li>Activité&nbsp;: Montage vidéo et post-production</li>
+      <li>Régime fiscal&nbsp;: Franchise en base de TVA – art. 293 B du CGI (TVA non applicable)</li>
+    </ul>
+  </article>
+
+  <article id="art-2" class="article">
+    <span class="article__num">Article 02</span>
+    <h2>Directeur de la publication</h2>
+    <p>Le directeur de la publication du site flotsam-production.com est Paul Lynch, en sa qualité d'exploitant de l'auto-entreprise Flotsam Production.</p>
+    <p>Il peut être contacté à l'adresse suivante&nbsp;: <a href="mailto:contact@flotsam-production.com">contact@flotsam-production.com</a>.</p>
+  </article>
+
+  <article id="art-3" class="article">
+    <span class="article__num">Article 03</span>
+    <h2>Hébergeur du site</h2>
+    <p>Le site flotsam-production.com est hébergé par la société Vercel Inc., dont les coordonnées sont les suivantes&nbsp;:</p>
+    <ul>
+      <li>Raison sociale&nbsp;: Vercel Inc.</li>
+      <li>Adresse&nbsp;: 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis</li>
+      <li>Site web&nbsp;: <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">vercel.com</a></li>
+      <li>Contact&nbsp;: <a href="https://vercel.com/support" target="_blank" rel="noopener noreferrer">vercel.com/support</a></li>
+    </ul>
+    <p>Vercel est une plateforme d'hébergement et de déploiement de sites web. Les serveurs utilisés pour la diffusion du site peuvent être localisés dans différentes régions selon la configuration choisie.</p>
+  </article>
+
+  <article id="art-4" class="article">
+    <span class="article__num">Article 04</span>
+    <h2>Conception et développement du site</h2>
+    <p>Le site flotsam-production.com a été conçu et développé par Paul Lynch, avec l'assistance de l'outil d'intelligence artificielle Claude, édité par Anthropic PBC.</p>
+    <ul>
+      <li>Anthropic PBC – 548 Market St, PMB 90375, San Francisco, CA 94104, États-Unis</li>
+      <li>Site web&nbsp;: <a href="https://www.anthropic.com" target="_blank" rel="noopener noreferrer">www.anthropic.com</a></li>
+    </ul>
+  </article>
+
+  <article id="art-5" class="article">
+    <span class="article__num">Article 05</span>
+    <h2>Propriété intellectuelle</h2>
+    <p>L'ensemble des contenus présents sur le site flotsam-production.com (textes, images, vidéos, montages, graphismes, logo, nom commercial, etc.) est la propriété exclusive de Paul Lynch / Flotsam Production, sauf mentions contraires expressément indiquées.</p>
+    <p>Ces contenus sont protégés par les dispositions du Code de la propriété intellectuelle, notamment ses articles L.111-1 et suivants relatifs au droit d'auteur, et L.711-1 et suivants relatifs aux marques.</p>
+    <p>Toute reproduction, représentation, modification, publication, adaptation ou exploitation de tout ou partie des contenus du site, par quelque moyen que ce soit, sans l'autorisation écrite préalable de Flotsam Production, est strictement interdite et constituerait une contrefaçon sanctionnée par les articles L.335-2 et suivants du Code de la propriété intellectuelle.</p>
+  </article>
+
+  <article id="art-6" class="article">
+    <span class="article__num">Article 06</span>
+    <h2>Responsabilité</h2>
+    <p>Flotsam Production s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur le site, dont elle se réserve le droit de modifier le contenu à tout moment et sans préavis.</p>
+    <p>Flotsam Production ne saurait être tenu responsable&nbsp;: de l'utilisation faite des informations contenues sur le site, des inexactitudes ou omissions portant sur les informations disponibles, des dommages directs ou indirects résultant de l'accès au site ou de son utilisation, ni des éventuelles interruptions ou indisponibilités du site.</p>
+    <p>Le site peut contenir des liens hypertextes vers des sites tiers. Ces liens sont fournis à titre informatif. Flotsam Production ne contrôle pas ces sites et décline toute responsabilité quant à leur contenu.</p>
+  </article>
+
+  <article id="art-7" class="article">
+    <span class="article__num">Article 07</span>
+    <h2>Données personnelles et RGPD</h2>
+    <p>Le site flotsam-production.com ne collecte pas de données personnelles via des formulaires ou outils de tracking automatisés à ce stade de son déploiement.</p>
+    <p>Toutefois, dans le cadre de la prise de contact par email (<a href="mailto:contact@flotsam-production.com">contact@flotsam-production.com</a>), les données transmises par l'utilisateur (nom, adresse email, message) sont utilisées exclusivement aux fins de répondre à la demande formulée. Elles ne sont ni cédées, ni vendues à des tiers.</p>
+    <p>Conformément au Règlement (UE) 2016/679 du 27 avril 2016 (RGPD) et à la loi n° 78-17 du 6 janvier 1978 modifiée (loi Informatique et Libertés), tout utilisateur dispose d'un droit d'accès, de rectification, d'effacement, d'opposition et de portabilité sur ses données personnelles.</p>
+    <p>Ces droits peuvent être exercés en adressant une demande écrite à&nbsp;: <a href="mailto:contact@flotsam-production.com">contact@flotsam-production.com</a>. En cas de réclamation, l'utilisateur peut saisir la CNIL – <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>.</p>
+    <p>Pour plus d'informations, consulter la <a href="./confidentialite.html">Politique de Confidentialité</a> accessible depuis le pied de page.</p>
+  </article>
+
+  <article id="art-8" class="article">
+    <span class="article__num">Article 08</span>
+    <h2>Cookies</h2>
+    <p>Le site flotsam-production.com n'utilise à ce stade aucun cookie de traçage, cookie publicitaire ou outil d'analyse d'audience tiers.</p>
+    <p>Des cookies strictement techniques et nécessaires au bon fonctionnement du site peuvent être déposés. Ils ne nécessitent pas le consentement préalable de l'utilisateur au sens de la directive ePrivacy et des recommandations de la CNIL.</p>
+    <p>En cas d'ajout ultérieur d'outils d'analyse ou de cookies non essentiels, les présentes mentions légales ainsi que la Politique de Confidentialité seront mises à jour et un bandeau de consentement sera intégré au site.</p>
+  </article>
+
+  <article id="art-9" class="article">
+    <span class="article__num">Article 09</span>
+    <h2>Droit applicable et juridiction compétente</h2>
+    <p>Les présentes mentions légales sont régies par le droit français. En cas de litige et à défaut de résolution amiable, les tribunaux français seront seuls compétents.</p>
+  </article>
+
+  <article id="art-10" class="article">
+    <span class="article__num">Article 10</span>
+    <h2>Mise à jour des mentions légales</h2>
+    <p>Flotsam Production se réserve le droit de modifier les présentes mentions légales à tout moment. La version applicable est celle en ligne au moment de la consultation du site.</p>
+  </article>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__wordmark">
+      <h3>Flotsam<span class="dot">.</span></h3>
+    </div>
+    <div class="footer__grid">
+      <div class="footer__col">
+        <div class="footer__col-label">Studio</div>
+        <p>Montage long & court format pour créateurs, marques et artistes. Basé à Paris, disponible à distance. Studio indépendant — fondé en 2023.</p>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-label">Navigation</div>
+        <div class="footer__col-links">
+          <a href="./Flotsam Portfolio.html#projects">Projets</a>
+          <a href="./Flotsam Portfolio.html#faq">FAQ</a>
+          <a href="./Flotsam Portfolio.html#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-label">Direct</div>
+        <div class="footer__col-links">
+          <a href="mailto:contact@flotsam-production.com">contact@flotsam-production.com</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-label">Mes réseaux</div>
+        <a class="footer__instagram"
+           href="https://www.instagram.com/flotsam.prod/"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer__strip">
+      <span>© 2026 Flotsam Production. Tous droits réservés.</span>
+      <div class="footer__legal">
+        <a href="./mentions-legales.html">Mentions légales</a>
+        <a href="./confidentialite.html">Confidentialité</a>
+        <a href="./cgv.html">CGV</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>CGV — Flotsam Production</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Conditions Générales de Vente de Flotsam Production — Paul Lynch, montage vidéo et post-production.">
+<meta name="robots" content="noindex,follow">
+
+<link rel="stylesheet" href="colors_and_type.css">
+
+<style>
+/* =========================================================================
+   Legal page — sober, linear, no animations.
+   Brandbook tokens. Anthracite + paper + violet only.
+   ========================================================================= */
+:root {
+  --bg:        #272932;
+  --bg-deeper: #1A1C22;
+  --fg:        #FEFEFE;
+  --fg-body:   #C7C8CE;
+  --fg-muted:  #9A9CA5;
+  --fg-dim:    #6E717D;
+  --accent:    #772CE8;
+  --border:    rgba(254, 254, 254, 0.08);
+  --container: 900px;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg-body);
+  font-family: 'Satoshi', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+::selection { background: var(--accent); color: var(--fg); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------- NAV (homepage replica, shrunk state) ---------- */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 48px;
+  background: rgba(26, 28, 34, 0.72);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border-bottom: 1px solid var(--border);
+}
+.nav__brand img {
+  width: 56px; height: 56px;
+  object-fit: cover; object-position: center;
+  border-radius: 60%;
+}
+.nav__links { display: flex; gap: 36px; align-items: center; }
+.nav__link {
+  font-size: 13px; font-weight: 500; color: var(--fg);
+  letter-spacing: 0.04em; text-decoration: none;
+}
+.nav__link:hover { color: var(--accent); text-decoration: none; }
+.nav__cta {
+  display: inline-flex; align-items: center; gap: 14px;
+  padding: 10px 16px;
+  background: var(--accent); color: var(--fg); text-decoration: none;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+  border-radius: 2px;
+}
+.nav__cta:hover { background: var(--bg-deeper); text-decoration: none; }
+
+/* ---------- HERO ---------- */
+.hero {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 200px 32px 56px;
+}
+.hero__eyebrow {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--fg-dim);
+  margin: 0 0 18px;
+}
+.hero h1 {
+  margin: 0;
+  font-weight: 900;
+  font-size: clamp(40px, 5.5vw, 64px);
+  letter-spacing: -0.025em; line-height: 1.05;
+  color: var(--fg);
+}
+.hero__lead {
+  margin: 28px 0 0;
+  max-width: 60ch;
+  font-size: 16.5px; line-height: 1.7;
+  color: var(--fg-muted);
+}
+.hero__version {
+  margin: 28px 0 0;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--fg-dim);
+}
+
+/* ---------- TOC (inline, plain list) ---------- */
+.toc {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 32px 32px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.toc__label {
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--fg-dim);
+  margin: 0 0 18px;
+}
+.toc__list {
+  list-style: none; margin: 0; padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px 32px;
+}
+.toc__link {
+  display: flex; gap: 14px;
+  font-size: 14px; color: var(--fg-body);
+  text-decoration: none;
+  padding: 4px 0;
+}
+.toc__link:hover { color: var(--accent); text-decoration: none; }
+.toc__num {
+  font-variant-numeric: tabular-nums;
+  color: var(--accent); font-weight: 500;
+  min-width: 24px;
+}
+
+/* ---------- ARTICLES ---------- */
+.doc {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 16px 32px 96px;
+}
+.article {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+}
+.article:first-of-type { border-top: none; }
+.article__num {
+  display: block;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.article h2 {
+  margin: 0 0 24px;
+  font-size: clamp(22px, 2.6vw, 28px);
+  font-weight: 700; letter-spacing: -0.015em; line-height: 1.25;
+  color: var(--fg);
+}
+.article h3 {
+  margin: 28px 0 10px;
+  font-size: 14px; font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+.article p {
+  margin: 0 0 14px;
+  font-size: 15.5px; line-height: 1.7;
+  color: var(--fg-body);
+}
+.article p strong { color: var(--fg); font-weight: 600; }
+.article ul {
+  margin: 10px 0 18px;
+  padding-left: 22px;
+  font-size: 15.5px; line-height: 1.7;
+  color: var(--fg-body);
+}
+.article li { margin: 6px 0; }
+.article li::marker { color: var(--accent); }
+
+/* ---------- FOOTER (homepage replica) ---------- */
+.footer {
+  padding: 80px 64px 40px;
+  background: #151720;
+  border-top: 1px solid var(--border);
+  color: var(--fg-body);
+}
+.footer__inner { max-width: 1440px; margin: 0 auto; }
+.footer__wordmark { padding-bottom: 40px; border-bottom: 1px solid var(--border); }
+.footer__wordmark h3 {
+  margin: 0;
+  font-weight: 900;
+  font-size: clamp(80px, 14vw, 220px);
+  letter-spacing: -0.04em; line-height: 0.88;
+  color: var(--fg);
+}
+.footer__wordmark h3 .dot { color: var(--accent); }
+.footer__grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px; padding: 48px 0;
+}
+.footer__col-label {
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--fg-dim); margin-bottom: 16px;
+}
+.footer__col p { margin: 0; max-width: 36ch; font-size: 14px; line-height: 1.65; color: var(--fg-body); }
+.footer__col-links { display: grid; gap: 12px; }
+.footer__col-links a { color: var(--fg); text-decoration: none; font-size: 14px; font-weight: 500; }
+.footer__col-links a:hover { color: var(--accent); text-decoration: none; }
+.footer__instagram { display: inline-flex; align-items: center; color: var(--fg); text-decoration: none; }
+.footer__instagram:hover { color: var(--accent); }
+.footer__strip {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 32px; border-top: 1px solid var(--border);
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--fg-dim); flex-wrap: wrap; gap: 24px;
+}
+.footer__legal { display: flex; gap: 32px; }
+.footer__legal a { color: inherit; text-decoration: none; }
+.footer__legal a:hover { color: var(--accent); text-decoration: none; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 880px) {
+  .nav { padding: 12px 24px; }
+  .nav__links { gap: 20px; }
+  .hero { padding: 150px 24px 40px; }
+  .toc, .doc { padding-left: 24px; padding-right: 24px; }
+  .toc__list { grid-template-columns: 1fr; }
+  .footer { padding: 56px 24px 32px; }
+  .footer__grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+@media (max-width: 560px) {
+  .nav__link, .nav__cta { font-size: 11px; }
+  .nav__brand img { width: 44px; height: 44px; }
+  .footer__grid { grid-template-columns: 1fr; }
+  .footer__strip { flex-direction: column; align-items: flex-start; gap: 16px; }
+}
+@media print {
+  body { background: #fff; color: #000; }
+  .nav, .footer { display: none; }
+  .article a, .article h3, .article__num, .toc__num { color: #772CE8 !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a class="nav__brand" href="./Flotsam Portfolio.html">
+    <img src="uploads/logo%202025.png" alt="Flotsam" width="56" height="56">
+  </a>
+  <nav class="nav__links" aria-label="Navigation principale">
+    <a class="nav__link" href="./Flotsam Portfolio.html#temoignages">Témoignages</a>
+    <a class="nav__link" href="./Flotsam Portfolio.html#projects">Projets</a>
+    <a class="nav__link" href="./Flotsam Portfolio.html#creations">Créations</a>
+    <a class="nav__link" href="./Flotsam Portfolio.html#faq">FAQ</a>
+    <a class="nav__link" href="./Flotsam Portfolio.html#contact">Contact</a>
+    <a class="nav__cta" href="https://calendly.com/flotsam-prod/30min" target="_blank" rel="noopener noreferrer">
+      Réserver un appel <span aria-hidden="true">→</span>
+    </a>
+  </nav>
+</header>
+
+<section class="hero">
+  <p class="hero__eyebrow">Document légal</p>
+  <h1>Conditions générales de vente</h1>
+  <p class="hero__lead">
+    Le cadre dans lequel s'inscrit toute collaboration avec Flotsam Production —
+    périmètre des prestations, tarifs, délais, droits d'auteur, paiement et
+    résolution des litiges. À lire avant signature de devis.
+  </p>
+  <p class="hero__version">Version en vigueur au 28 mai 2025</p>
+</section>
+
+<nav class="toc" aria-label="Sommaire">
+  <p class="toc__label">Sommaire</p>
+  <ul class="toc__list">
+    <li><a class="toc__link" href="#art-1"><span class="toc__num">01</span>Identification du prestataire</a></li>
+    <li><a class="toc__link" href="#art-2"><span class="toc__num">02</span>Champ d'application</a></li>
+    <li><a class="toc__link" href="#art-3"><span class="toc__num">03</span>Description des prestations</a></li>
+    <li><a class="toc__link" href="#art-4"><span class="toc__num">04</span>Devis et formation du contrat</a></li>
+    <li><a class="toc__link" href="#art-5"><span class="toc__num">05</span>Tarifs et révisions</a></li>
+    <li><a class="toc__link" href="#art-6"><span class="toc__num">06</span>Modalités de paiement</a></li>
+    <li><a class="toc__link" href="#art-7"><span class="toc__num">07</span>Délais de livraison</a></li>
+    <li><a class="toc__link" href="#art-8"><span class="toc__num">08</span>Propriété intellectuelle</a></li>
+    <li><a class="toc__link" href="#art-9"><span class="toc__num">09</span>Confidentialité</a></li>
+    <li><a class="toc__link" href="#art-10"><span class="toc__num">10</span>Annulation et résiliation</a></li>
+    <li><a class="toc__link" href="#art-11"><span class="toc__num">11</span>Responsabilité</a></li>
+    <li><a class="toc__link" href="#art-12"><span class="toc__num">12</span>Droit de rétractation</a></li>
+    <li><a class="toc__link" href="#art-13"><span class="toc__num">13</span>Protection des données (RGPD)</a></li>
+    <li><a class="toc__link" href="#art-14"><span class="toc__num">14</span>Médiation et litiges</a></li>
+    <li><a class="toc__link" href="#art-15"><span class="toc__num">15</span>Droit applicable</a></li>
+    <li><a class="toc__link" href="#art-16"><span class="toc__num">16</span>Modification des CGV</a></li>
+    <li><a class="toc__link" href="#art-17"><span class="toc__num">17</span>Acceptation des CGV</a></li>
+  </ul>
+</nav>
+
+<main class="doc">
+
+  <article id="art-1" class="article">
+    <span class="article__num">Article 01</span>
+    <h2>Identification du prestataire</h2>
+    <p>Les présentes Conditions Générales de Vente (ci-après «&nbsp;CGV&nbsp;») sont conclues entre&nbsp;:</p>
+    <p><strong>Paul Lynch, exerçant sous le nom commercial Flotsam Production</strong></p>
+    <ul>
+      <li>Statut juridique&nbsp;: Auto-entrepreneur (micro-entreprise)</li>
+      <li>SIRET&nbsp;: 984 826 529 00013</li>
+      <li>Adresse&nbsp;: 2 rue Degly Maillot, 78124 Mareil-sur-Mauldre, Île-de-France</li>
+      <li>Email professionnel&nbsp;: <a href="mailto:contact@flotsam-production.com">contact@flotsam-production.com</a></li>
+      <li>Activité principale&nbsp;: Montage vidéo et post-production</li>
+      <li>Régime fiscal&nbsp;: Franchise en base de TVA (article 293 B du CGI) – TVA non applicable</li>
+    </ul>
+    <p>Et toute personne physique ou morale (ci-après «&nbsp;le Client&nbsp;») souhaitant bénéficier des services de Flotsam Production.</p>
+    <p>Le fait de passer commande implique l'acceptation pleine et entière des présentes CGV par le Client, qui reconnaît en avoir pris connaissance préalablement.</p>
+  </article>
+
+  <article id="art-2" class="article">
+    <span class="article__num">Article 02</span>
+    <h2>Champ d'application</h2>
+    <p>Les présentes CGV s'appliquent à toutes les prestations de services de montage vidéo et de post-production proposées par Flotsam Production, à destination&nbsp;:</p>
+    <ul>
+      <li>Des particuliers (B2C)</li>
+      <li>Des entreprises et marques (B2B)</li>
+      <li>Des créateurs de contenu et influenceurs</li>
+      <li>Des agences de communication et de production</li>
+    </ul>
+    <p>Toute commande passée auprès de Flotsam Production emporte acceptation sans réserve des présentes CGV, qui prévalent sur tout autre document du Client, notamment ses propres conditions générales d'achat, sauf accord écrit préalable et exprès du prestataire.</p>
+    <p>Des conditions particulières peuvent être négociées et formalisées dans un devis ou contrat spécifique signé par les deux parties. En cas de contradiction, les conditions particulières priment sur les présentes CGV.</p>
+  </article>
+
+  <article id="art-3" class="article">
+    <span class="article__num">Article 03</span>
+    <h2>Description des prestations</h2>
+    <h3>3.1 Nature des services</h3>
+    <p>Flotsam Production propose des prestations de montage vidéo et de post-production incluant notamment&nbsp;: l'assemblage de rushes, le découpage et la synchronisation, l'habillage graphique et le motion design, l'étalonnage colorimétrique, le mixage audio, l'intégration de musiques et effets sonores, ainsi que l'export dans les formats définis en commun.</p>
+    <h3>3.2 Brief et périmètre de la prestation</h3>
+    <p>Chaque prestation est définie par un brief validé par les deux parties avant le démarrage des travaux. Ce brief précise notamment&nbsp;: le type de contenu (court-métrage, teaser, vidéo YouTube, contenu social media, vidéo d'entreprise, etc.), les durées, les références visuelles et artistiques, les livrables attendus, les formats d'export requis, ainsi que le calendrier de livraison.</p>
+    <p>Toute demande sortant du cadre du brief validé constitue une modification substantielle du projet. Elle fera l'objet d'un avenant tarifaire et d'un nouveau délai négocié entre les parties (voir Article 5).</p>
+    <h3>3.3 Obligations du Client</h3>
+    <p>Le Client s'engage à fournir dans les délais convenus l'ensemble des éléments nécessaires à la réalisation de la prestation&nbsp;: fichiers sources (rushes, images, logos, etc.), informations créatives, accès aux plateformes si nécessaire. Tout retard dans la transmission des éléments par le Client est susceptible d'entraîner un report du calendrier de livraison, sans que la responsabilité de Flotsam Production puisse être engagée.</p>
+  </article>
+
+  <article id="art-4" class="article">
+    <span class="article__num">Article 04</span>
+    <h2>Devis et formation du contrat</h2>
+    <p>Toute prestation fait l'objet d'un devis écrit préalable, établi par Flotsam Production sur la base du brief transmis par le Client. Le devis précise la nature de la prestation, le tarif forfaitaire, les délais estimés, le nombre de révisions incluses et les modalités de paiement applicables.</p>
+    <p>Le contrat est formé et la prestation est considérée comme commandée dès lors que le Client a retourné le devis signé, accompagné, le cas échéant, du règlement de l'acompte prévu. Tout devis non accepté dans un délai de 30 jours calendaires à compter de sa date d'émission est caduc.</p>
+    <p>Flotsam Production se réserve le droit de refuser toute commande sans avoir à justifier sa décision.</p>
+  </article>
+
+  <article id="art-5" class="article">
+    <span class="article__num">Article 05</span>
+    <h2>Tarifs et révisions</h2>
+    <h3>5.1 Tarification forfaitaire</h3>
+    <p>Les prestations sont facturées au forfait, dont le montant est précisé dans le devis accepté par le Client. Ce forfait couvre l'ensemble des travaux définis dans le brief initial validé par les deux parties.</p>
+    <p>Flotsam Production est un auto-entrepreneur bénéficiant de la franchise en base de TVA au titre de l'article 293 B du Code général des impôts. À ce titre, la TVA n'est pas applicable aux prestations facturées, et la mention «&nbsp;TVA non applicable – art. 293 B du CGI&nbsp;» figure sur chaque facture.</p>
+    <h3>5.2 Révisions incluses</h3>
+    <p>Le forfait inclut un nombre illimité de révisions, dans la stricte limite du périmètre défini par le brief initial validé par les deux parties. Les révisions s'entendent comme des ajustements portant sur&nbsp;: la sélection des plans, le rythme du montage, les corrections colorimétriques mineures, les modifications de textes ou sous-titres, et les réglages audio.</p>
+    <p>Ne constituent pas une révision, et feront l'objet d'une facturation complémentaire, toutes les demandes impliquant&nbsp;: un changement de format ou de destination du contenu, un changement de concept créatif ou de narration, l'ajout de séquences ou rushes non prévus au brief initial, ou toute modification substantielle du périmètre de la prestation initialement convenu.</p>
+    <h3>5.3 Avenants tarifaires</h3>
+    <p>Toute modification substantielle du projet fait l'objet d'un avenant écrit, signé par les deux parties avant la reprise des travaux. Cet avenant précise le montant supplémentaire et le nouveau délai de livraison. En l'absence d'accord sur l'avenant, la prestation est considérée comme terminée sur la base du brief initial.</p>
+  </article>
+
+  <article id="art-6" class="article">
+    <span class="article__num">Article 06</span>
+    <h2>Modalités de paiement</h2>
+    <h3>6.1 Conditions générales</h3>
+    <p>Les modalités de paiement applicables à chaque prestation sont définies dans le devis accepté par le Client. Selon le projet, les conditions suivantes peuvent s'appliquer&nbsp;:</p>
+    <ul>
+      <li>Paiement intégral à la livraison du montage final validé</li>
+      <li>Paiement en plusieurs fois, selon un échéancier défini dans le devis</li>
+      <li>Conditions spécifiques négociées avec les clients professionnels (B2B), formalisées par écrit</li>
+    </ul>
+    <h3>6.2 Modalités et délais de règlement</h3>
+    <p>Le paiement s'effectue par virement bancaire, par chèque ou par tout autre moyen expressément convenu dans le devis. Pour les clients professionnels (B2B), le délai de paiement est de 30 jours à compter de la date d'émission de la facture, conformément à l'article L.441-10 du Code de commerce.</p>
+    <h3>6.3 Retard de paiement</h3>
+    <p>Tout retard de paiement au-delà de l'échéance prévue entraîne de plein droit, et sans mise en demeure préalable&nbsp;:</p>
+    <ul>
+      <li>L'application d'intérêts de retard au taux légal en vigueur, majoré de 10 points (art. L.441-10 C. com.)</li>
+      <li>Une indemnité forfaitaire pour frais de recouvrement de 40 € pour les clients professionnels (art. D.441-5 C. com.)</li>
+      <li>La suspension immédiate de toute prestation en cours jusqu'au règlement complet des sommes dues</li>
+    </ul>
+    <h3>6.4 Rétention des fichiers sources</h3>
+    <p>En cas de non-paiement à l'échéance, Flotsam Production se réserve le droit de ne pas livrer les fichiers sources et les exports définitifs jusqu'au complet paiement de la facture correspondante.</p>
+  </article>
+
+  <article id="art-7" class="article">
+    <span class="article__num">Article 07</span>
+    <h2>Délais de livraison</h2>
+    <p>Les délais de livraison sont définis dans le devis et courent à compter de la réception de l'intégralité des éléments nécessaires à la réalisation de la prestation et, le cas échéant, du règlement de l'acompte convenu.</p>
+    <p>Ces délais sont donnés à titre indicatif. Flotsam Production s'engage à mettre tout en œuvre pour les respecter, mais ne saurait être tenu responsable d'un retard résultant d'un cas de force majeure, d'un retard dans la transmission des éléments par le Client, ou d'une modification du brief en cours de projet.</p>
+    <p>En cas de retard imputable à Flotsam Production dépassant 7 jours ouvrés au-delà du délai convenu, le Client peut, après mise en demeure restée sans effet, demander une réduction proportionnelle du prix ou la résiliation du contrat.</p>
+  </article>
+
+  <article id="art-8" class="article">
+    <span class="article__num">Article 08</span>
+    <h2>Propriété intellectuelle et droits d'auteur</h2>
+    <h3>8.1 Droits du prestataire</h3>
+    <p>Paul Lynch est l'auteur des montages vidéo réalisés dans le cadre de ses prestations, au sens des articles L.111-1 et suivants du Code de la propriété intellectuelle. À ce titre, il détient l'intégralité des droits moraux et patrimoniaux sur ses créations.</p>
+    <h3>8.2 Licence d'exploitation consentie au Client</h3>
+    <p>À compter du paiement intégral de la prestation, Flotsam Production concède au Client une licence d'exploitation non exclusive portant sur le montage livré. Cette licence est accordée pour&nbsp;:</p>
+    <ul>
+      <li>Les supports expressément définis dans le brief validé</li>
+      <li>La durée prévue dans le devis ou, à défaut, pour une durée de 5 ans</li>
+      <li>Le territoire mondial, sauf mention contraire dans le devis</li>
+    </ul>
+    <p>Cette licence n'emporte pas le droit pour le Client de modifier, adapter, sous-licencier, revendre ou exploiter commercialement le montage au-delà du cadre défini ci-dessus, sans accord écrit préalable de Flotsam Production.</p>
+    <h3>8.3 Cession totale des droits (option)</h3>
+    <p>Une cession totale et définitive des droits patrimoniaux peut être consentie au Client sur demande expresse et fera l'objet d'une facturation spécifique. En l'absence de mention explicite de cession totale, la clause de licence (8.2) s'applique par défaut.</p>
+    <h3>8.4 Droit de présentation (portfolio)</h3>
+    <p>Flotsam Production se réserve le droit de présenter les montages réalisés dans son portfolio, sur son site web et ses réseaux sociaux professionnels. Si le Client souhaite préserver la confidentialité d'un projet, il devra en faire la demande expresse par écrit lors de la commande.</p>
+    <h3>8.5 Contenus fournis par le Client</h3>
+    <p>Le Client garantit être titulaire des droits nécessaires sur l'ensemble des éléments qu'il fournit (rushes, musiques, images, logos, textes, etc.) et garantit Flotsam Production contre tout recours de tiers lié à leur utilisation.</p>
+  </article>
+
+  <article id="art-9" class="article">
+    <span class="article__num">Article 09</span>
+    <h2>Confidentialité</h2>
+    <p>Flotsam Production s'engage à traiter comme strictement confidentielles toutes les informations communiquées par le Client dans le cadre de la prestation et à ne pas les divulguer à des tiers sans accord préalable écrit.</p>
+    <p>Cette obligation s'applique pendant toute la durée de la prestation et pendant une période de 3 ans suivant la livraison du projet.</p>
+  </article>
+
+  <article id="art-10" class="article">
+    <span class="article__num">Article 10</span>
+    <h2>Annulation et résiliation</h2>
+    <h3>10.1 Annulation par le Client</h3>
+    <p>Toute annulation doit être notifiée par écrit. Les conditions suivantes s'appliquent&nbsp;:</p>
+    <ul>
+      <li><strong>Avant démarrage</strong>&nbsp;: aucune facturation, sauf acompte versé qui reste acquis à Flotsam Production</li>
+      <li><strong>Après démarrage</strong>&nbsp;: les travaux réalisés sont facturés au prorata du forfait convenu</li>
+      <li><strong>Refus de livraison sans motif légitime</strong>&nbsp;: le montant intégral du forfait reste dû</li>
+    </ul>
+    <h3>10.2 Résiliation par Flotsam Production</h3>
+    <p>Flotsam Production peut résilier le contrat en cas de manquement grave du Client (défaut de paiement, non-fourniture des éléments dans un délai de 30 jours, comportement abusif), après mise en demeure restée sans effet pendant 15 jours calendaires. Les travaux déjà réalisés restent dus.</p>
+  </article>
+
+  <article id="art-11" class="article">
+    <span class="article__num">Article 11</span>
+    <h2>Responsabilité</h2>
+    <p>Flotsam Production s'engage à réaliser les prestations avec soin et diligence. La prestation est une obligation de moyens.</p>
+    <p>La responsabilité de Flotsam Production ne peut être engagée en cas de retard causé par le Client, de perte des fichiers sources, d'utilisation du montage en violation des CGV, ou de cas de force majeure (art. 1218 C. civ.).</p>
+    <p>Dans tous les cas, la responsabilité de Flotsam Production est limitée au montant facturé au titre de la prestation concernée.</p>
+  </article>
+
+  <article id="art-12" class="article">
+    <span class="article__num">Article 12</span>
+    <h2>Droit de rétractation</h2>
+    <p>Conformément à l'article L.221-28 du Code de la consommation, le droit de rétractation ne s'applique pas aux contrats de fourniture de contenu numérique dont l'exécution a commencé avec l'accord exprès du consommateur et après renonciation à ce droit.</p>
+    <p>En acceptant le devis et en donnant son accord pour le démarrage des travaux, le Client renonce expressément à son droit de rétractation.</p>
+    <p>Pour les clients professionnels (B2B), le droit de rétractation légal ne s'applique pas.</p>
+  </article>
+
+  <article id="art-13" class="article">
+    <span class="article__num">Article 13</span>
+    <h2>Protection des données personnelles (RGPD)</h2>
+    <p>Flotsam Production traite les données personnelles du Client (nom, email, adresse, etc.) aux fins de gestion de la relation commerciale, sur le fondement de l'exécution du contrat (art. 6.1.b RGPD). Ces données ne sont ni vendues ni transmises à des tiers et sont conservées 5 ans à compter de la fin de la relation commerciale.</p>
+    <p>Conformément au RGPD et à la loi Informatique et Libertés, le Client dispose d'un droit d'accès, de rectification, d'effacement, d'opposition et de portabilité, exerceable à&nbsp;: <a href="mailto:contact@flotsam-production.com">contact@flotsam-production.com</a>.</p>
+    <p>En cas de litige, le Client peut saisir la CNIL&nbsp;: <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>.</p>
+  </article>
+
+  <article id="art-14" class="article">
+    <span class="article__num">Article 14</span>
+    <h2>Médiation et règlement des litiges</h2>
+    <p>En cas de litige, les parties s'engagent à rechercher une solution amiable avant toute action judiciaire.</p>
+    <p><strong>Pour les litiges B2C</strong>&nbsp;: le Client peut saisir le Médiateur des entreprises (<a href="https://www.mediateur-des-entreprises.fr" target="_blank" rel="noopener noreferrer">www.mediateur-des-entreprises.fr</a>) ou la plateforme européenne de règlement en ligne des litiges (<a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">ec.europa.eu/consumers/odr</a>).</p>
+    <p><strong>Pour les litiges B2B</strong>&nbsp;: à défaut de résolution amiable dans un délai de 30 jours, tout différend sera soumis à la compétence exclusive des tribunaux du ressort de la Cour d'appel de Versailles.</p>
+  </article>
+
+  <article id="art-15" class="article">
+    <span class="article__num">Article 15</span>
+    <h2>Droit applicable</h2>
+    <p>Les présentes CGV sont soumises au droit français. Elles sont rédigées en langue française, qui prévaut sur toute traduction en cas de litige.</p>
+  </article>
+
+  <article id="art-16" class="article">
+    <span class="article__num">Article 16</span>
+    <h2>Modification des CGV</h2>
+    <p>Flotsam Production se réserve le droit de modifier les présentes CGV à tout moment. Les CGV applicables sont celles en vigueur à la date d'acceptation du devis par le Client.</p>
+  </article>
+
+  <article id="art-17" class="article">
+    <span class="article__num">Article 17</span>
+    <h2>Acceptation des CGV</h2>
+    <p>Le Client reconnaît avoir pris connaissance des présentes CGV et les accepte sans réserve en validant le devis qui lui est soumis. Les présentes CGV constituent avec le devis accepté l'intégralité de l'accord entre les parties pour la prestation concernée.</p>
+  </article>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__wordmark">
+      <h3>Flotsam<span class="dot">.</span></h3>
+    </div>
+    <div class="footer__grid">
+      <div class="footer__col">
+        <div class="footer__col-label">Studio</div>
+        <p>Montage long & court format pour créateurs, marques et artistes. Basé à Paris, disponible à distance. Studio indépendant — fondé en 2023.</p>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-label">Navigation</div>
+        <div class="footer__col-links">
+          <a href="./Flotsam Portfolio.html#projects">Projets</a>
+          <a href="./Flotsam Portfolio.html#faq">FAQ</a>
+          <a href="./Flotsam Portfolio.html#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-label">Direct</div>
+        <div class="footer__col-links">
+          <a href="mailto:contact@flotsam-production.com">contact@flotsam-production.com</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-label">Mes réseaux</div>
+        <a class="footer__instagram"
+           href="https://www.instagram.com/flotsam.prod/"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer__strip">
+      <span>© 2026 Flotsam Production. Tous droits réservés.</span>
+      <div class="footer__legal">
+        <a href="./mentions-legales.html">Mentions légales</a>
+        <a href="./confidentialite.html">Confidentialité</a>
+        <a href="./cgv.html">CGV</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
