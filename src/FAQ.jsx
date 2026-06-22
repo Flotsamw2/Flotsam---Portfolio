@@ -138,7 +138,7 @@ function FAQ() {
                 margin: '32px 0 0 0', maxWidth: '34ch',
                 fontSize: 16, lineHeight: 1.6, color: '#4A4D58',
               }}>
-                Prends rendez-vous avec moi pour découvrir comment mes services peuvent rendre ton contenu plus impactant.
+                Prends rendez-vous avec moi pour découvrir comment mes services peuvent rendre ton contenu <span style={{ color: '#772CE8' }}>plus impactant.</span>
               </p>
             </Reveal>
             <Reveal delay={380}>
