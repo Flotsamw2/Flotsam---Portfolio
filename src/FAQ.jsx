@@ -138,8 +138,7 @@ function FAQ() {
                 margin: '32px 0 0 0', maxWidth: '34ch',
                 fontSize: 16, lineHeight: 1.6, color: '#4A4D58',
               }}>
-                Tout ce qu'on me demande avant de signer. Si une question manque,
-                <a href="#contact" style={{ color: '#772CE8', textDecoration: 'none', fontWeight: 500 }}> écrivez-moi directement</a>.
+                Prends rendez-vous avec moi pour découvrir comment mes services peuvent rendre ton contenu plus impactant.
               </p>
             </Reveal>
             <Reveal delay={380}>
