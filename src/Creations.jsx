@@ -8,8 +8,9 @@
 function YoutubeEmbed({ url, ratio, title }) {
   const [active, setActive] = React.useState(false);
   const paddingBottom = ratio === '9/16' ? '177.77%' : '56.25%';
-  const videoId = url.match(/embed\/([^?]+)/)?.[1] ?? '';
-  const thumb   = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+  const videoId  = url.match(/embed\/([^?]+)/)?.[1] ?? '';
+  const thumb    = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+  const fallback = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
 
   return (
     <div
@@ -33,9 +34,10 @@ function YoutubeEmbed({ url, ratio, title }) {
         <>
           <img
             src={thumb}
+            onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = fallback; }}
             alt={title}
             loading="lazy"
-            width="480" height="360"
+            width="1280" height="720"
             style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
           />
           <div style={{
