@@ -12,13 +12,13 @@ function Footer({ onJumpTo }) {
         <div style={{
           paddingBottom: 40, borderBottom: '1px solid rgba(254,254,254,0.06)',
         }}>
-          <h3 style={{
+          <p style={{
             margin: 0, fontFamily: 'Satoshi, sans-serif',
             fontWeight: 900, fontSize: 'clamp(80px, 14vw, 220px)',
             letterSpacing: '-0.04em', lineHeight: 0.88, color: '#FEFEFE',
           }}>
             Flotsam<span style={{ color: '#772CE8' }}>.</span>
-          </h3>
+          </p>
         </div>
 
         {/* Grid */}

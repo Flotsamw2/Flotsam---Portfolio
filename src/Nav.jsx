@@ -32,7 +32,7 @@ function Nav({ onJumpTo, onBookCall }) {
       <a onClick={() => onJumpTo('hero')} style={{ cursor: 'pointer', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 14 }}>
         <img
           src="uploads/logo%202025.png"
-          alt="Flotsam"
+          alt="Flotsam Production — logo"
           width="64"
           height="64"
           style={{ width: 64, height: 64, objectFit: 'cover', objectPosition: 'center', borderRadius: '60%', overflow: 'hidden' }}

@@ -2,6 +2,64 @@
 // Showcase grid : 3 horizontales (16:9) embed YouTube.
 // Brandbook : anthracite + violet, Satoshi, reveal au scroll, zero bounce.
 
+// YoutubeEmbed — lazy facade (thumbnail i.ytimg, iframe loaded on click only).
+// NOTE: duplicated from Projects.jsx because JSX files are loaded via separate
+// <script> tags without ES module sharing. Keep both in sync if edited.
+function YoutubeEmbed({ url, ratio, title }) {
+  const [active, setActive] = React.useState(false);
+  const paddingBottom = ratio === '9/16' ? '177.77%' : '56.25%';
+  const videoId = url.match(/embed\/([^?]+)/)?.[1] ?? '';
+  const thumb   = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+
+  return (
+    <div
+      style={{
+        position: 'relative', paddingBottom, height: 0,
+        overflow: 'hidden', cursor: 'pointer', background: '#1A1C22',
+      }}
+      onClick={() => setActive(true)}
+    >
+      {active ? (
+        <iframe
+          src={`${url}&autoplay=1`}
+          width="100%" height="100%"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          title={title}
+          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+        />
+      ) : (
+        <>
+          <img
+            src={thumb}
+            alt={title}
+            loading="lazy"
+            width="480" height="360"
+            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+          <div style={{
+            position: 'absolute', inset: 0,
+            display: 'grid', placeItems: 'center',
+            background: 'rgba(26,28,34,0.35)',
+          }}>
+            <div style={{
+              width: 72, height: 72, borderRadius: '50%',
+              border: '1px solid rgba(254,254,254,0.5)',
+              background: 'rgba(39,41,50,0.6)',
+              display: 'grid', placeItems: 'center',
+            }}>
+              <svg width="18" height="20" viewBox="0 0 18 20" fill="#FEFEFE" aria-hidden="true">
+                <path d="M0 0 L18 10 L0 20 Z"/>
+              </svg>
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
 const CREATIONS_HORIZONTAL = [
   {
     id: 'h1',
@@ -40,18 +98,7 @@ function CreationCard({ item, ratio, label, height, maxHeight }) {
   return (
     <div>
       {item.youtubeUrl ? (
-        <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
-          <iframe
-            src={item.youtubeUrl}
-            width="100%" height="100%"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            loading="lazy"
-            title={item.title}
-            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-          />
-        </div>
+        <YoutubeEmbed url={item.youtubeUrl} ratio="16/9" title={item.title} />
       ) : (
         <div style={{ maxWidth: videoMaxWidth }}>
           <VideoFrame ratio={ratio} label={label} seed={item.seed} height={height} src={item.src} />

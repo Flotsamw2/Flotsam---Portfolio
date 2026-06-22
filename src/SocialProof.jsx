@@ -61,7 +61,7 @@ function ClientCard({ c, index }) {
           overflow: 'hidden',
         }}>
           {c.avatar
-            ? <img src={c.avatar} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
+            ? <img src={c.avatar} alt={`Avatar de ${c.name}`} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
             : c.name.split(' ').map(w => w[0]).slice(0,2).join('')}
         </div>
         <div style={{ minWidth: 0 }}>
