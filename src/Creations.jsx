@@ -15,7 +15,7 @@ function YoutubeEmbed({ url, ratio, title }) {
   return (
     <div
       style={{
-        position: 'relative', paddingBottom, height: 0,
+        position: 'relative', width: '100%', paddingBottom, height: 0,
         overflow: 'hidden', cursor: 'pointer', background: '#1A1C22',
       }}
       onClick={() => setActive(true)}
@@ -138,7 +138,7 @@ function Creations() {
           <Reveal delay={120}>
             <h2 style={{
               margin: 0, fontFamily: 'Satoshi, sans-serif',
-              fontWeight: 900, fontSize: 'clamp(56px, 8vw, 112px)',
+              fontWeight: 900, fontSize: 'clamp(36px, 10vw, 112px)',
               letterSpacing: '-0.03em', lineHeight: 0.92, maxWidth: '14ch',
             }}>
               Mes<br/><span style={{ color: '#772CE8', fontStyle: 'italic', fontFamily: 'Satoshi, sans-serif' }}>créations.</span>
@@ -157,7 +157,7 @@ function Creations() {
           </div>
         </Reveal>
 
-        <div style={{
+        <div className="fp-mobile-stack" style={{
           display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
           gap: 32,
         }}>

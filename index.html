@@ -5,7 +5,7 @@
 
 <!-- SEO de base -->
 <title>Flotsam. — Studio de montage vidéo, Paris</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Flotsam Production — Studio de montage vidéo basé à Paris. Montage long & court format pour créateurs, marques et artistes. +110 projets livrés, +2,5M de vues générées.">
 <link rel="canonical" href="https://flotsam-production.com/">
 
@@ -67,6 +67,71 @@
   }
   @media (max-width: 600px) {
     .fp-client-grid { grid-template-columns: 1fr !important; }
+  }
+
+  /* Mobile: collapse section horizontal padding so content never overflows the viewport.
+     Inline JSX styles use 64px — overridden with !important for sections and footer only. */
+  @media (max-width: 720px) {
+    /* Nav: hide desktop nav, show burger button */
+    .fp-nav { padding: 14px 24px !important; }
+    .fp-nav-desktop { display: none !important; }
+    .fp-nav-burger  { display: grid !important; }
+    .fp-nav-overlay { display: flex !important; }
+    .fp-nav-tagline { display: none !important; }
+    .fp-nav-logo    { width: 44px !important; height: 44px !important; }
+
+    main > section,
+    main > article,
+    body > footer {
+      padding-left: 24px !important;
+      padding-right: 24px !important;
+    }
+
+    /* Force any tagged multi-column grid to stack to a single column. */
+    .fp-mobile-stack {
+      grid-template-columns: 1fr !important;
+      gap: 32px !important;
+    }
+
+    /* Footer 4-col grid collapses to 2-col on mobile. */
+    .footer__grid {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 32px !important;
+    }
+    /* Long emails / links: never overflow horizontally. */
+    body > footer a { word-break: break-word; overflow-wrap: anywhere; }
+
+    /* Hero bottom strip: switch from absolute positioning to natural flow
+       so the scroll hint and stats no longer overlap the CTAs. */
+    .fp-hero-meta {
+      position: static !important;
+      left: auto !important;
+      right: auto !important;
+      bottom: auto !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 32px !important;
+      margin-top: 56px !important;
+    }
+    .fp-hero-stats {
+      flex-wrap: wrap !important;
+      gap: 24px !important;
+    }
+
+    /* Display headings: let long words break instead of overflowing. */
+    h1, h2, h3 { overflow-wrap: anywhere; }
+    /* And let the Hero h1 use the full available width. */
+    main > section:first-of-type h1 { max-width: 100% !important; }
+
+    /* FAQ left column: drop sticky on mobile (column is now stacked at top). */
+    .fp-faq-aside { position: static !important; }
+  }
+
+  /* Very narrow viewports: footer to single column. */
+  @media (max-width: 480px) {
+    .footer__grid {
+      grid-template-columns: 1fr !important;
+    }
   }
 </style>
 <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script>
