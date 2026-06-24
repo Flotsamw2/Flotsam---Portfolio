@@ -117,16 +117,16 @@ function FAQ() {
       color: '#272932',
     }}>
       <div style={{ maxWidth: 1440, margin: '0 auto' }}>
-        <div style={{
+        <div className="fp-mobile-stack" style={{
           display: 'grid', gridTemplateColumns: '1fr 1.3fr',
           gap: 96, alignItems: 'start',
         }}>
           {/* Left — display title */}
-          <div style={{ position: 'sticky', top: 120 }}>
+          <div className="fp-faq-aside" style={{ position: 'sticky', top: 120 }}>
             <Reveal delay={120}>
               <h2 style={{
                 margin: 0, fontFamily: 'Satoshi, sans-serif',
-                fontWeight: 900, fontSize: 'clamp(56px, 7vw, 104px)',
+                fontWeight: 900, fontSize: 'clamp(36px, 9vw, 104px)',
                 letterSpacing: '-0.03em', lineHeight: 0.92, maxWidth: '10ch',
                 color: '#272932',
               }}>

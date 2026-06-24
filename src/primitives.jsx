@@ -70,7 +70,9 @@ function Pill({ children, tone = 'violet', dot = false, pulse = false }) {
       background: bg, color: fg, border,
       padding: '7px 14px', borderRadius: 999,
       fontSize: 11, fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase',
-      whiteSpace: 'nowrap',
+      maxWidth: '100%',
+      lineHeight: 1.4,
+      textAlign: 'left',
     }}>
       {dot && (
         <span style={{ position: 'relative', width: 7, height: 7 }}>

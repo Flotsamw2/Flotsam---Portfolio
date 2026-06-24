@@ -55,7 +55,7 @@ function Hero({ onBookCall, onJumpTo }) {
           <h1 style={{
             margin: 0,
             fontFamily: 'Satoshi, sans-serif', fontWeight: 900,
-            fontSize: 'clamp(72px, 11.5vw, 168px)',
+            fontSize: 'clamp(48px, 13vw, 168px)',
             letterSpacing: '-0.035em', lineHeight: 0.9,
             maxWidth: '14ch',
             transform: `translateY(${-parallax * 0.3}px)`,
@@ -89,7 +89,7 @@ function Hero({ onBookCall, onJumpTo }) {
       </div>
 
       {/* Bottom meta strip — scroll indicator + stats */}
-      <div style={{
+      <div className="fp-hero-meta" style={{
         position: 'absolute', left: 64, right: 64, bottom: 40, zIndex: 2,
         display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 48,
       }}>
@@ -109,7 +109,7 @@ function Hero({ onBookCall, onJumpTo }) {
         </Reveal>
 
         <Reveal delay={800}>
-          <div style={{
+          <div className="fp-hero-stats" style={{
             display: 'flex', gap: 56, alignItems: 'flex-end',
           }}>
             <div>

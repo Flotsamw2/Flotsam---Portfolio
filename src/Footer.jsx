@@ -14,7 +14,7 @@ function Footer({ onJumpTo }) {
         }}>
           <p style={{
             margin: 0, fontFamily: 'Satoshi, sans-serif',
-            fontWeight: 900, fontSize: 'clamp(80px, 14vw, 220px)',
+            fontWeight: 900, fontSize: 'clamp(48px, 16vw, 220px)',
             letterSpacing: '-0.04em', lineHeight: 0.88, color: '#FEFEFE',
           }}>
             Flotsam<span style={{ color: '#772CE8' }}>.</span>
@@ -22,7 +22,7 @@ function Footer({ onJumpTo }) {
         </div>
 
         {/* Grid */}
-        <div style={{
+        <div className="footer__grid" style={{
           display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr',
           gap: 48, padding: '48px 0',
         }}>

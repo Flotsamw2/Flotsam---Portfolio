@@ -28,7 +28,7 @@ function Contact() {
         <Reveal delay={120}>
           <h2 style={{
             margin: 0, fontFamily: 'Satoshi, sans-serif',
-            fontWeight: 900, fontSize: 'clamp(64px, 9vw, 128px)',
+            fontWeight: 900, fontSize: 'clamp(44px, 11vw, 128px)',
             letterSpacing: '-0.035em', lineHeight: 0.9, maxWidth: '14ch',
             textAlign: 'center',
           }}>
@@ -54,7 +54,7 @@ function Contact() {
             data-url={`${CALENDLY_URL}?hide_event_type_details=0&hide_gdpr_banner=1&background_color=1a1c22&text_color=fefefe&primary_color=772ce8`}
             style={{
               marginTop: 72, width: 'min(960px, 100%)',
-              minWidth: 320, height: 720,
+              height: 720,
               border: '1px solid rgba(254,254,254,0.08)',
               background: '#1A1C22',
             }}

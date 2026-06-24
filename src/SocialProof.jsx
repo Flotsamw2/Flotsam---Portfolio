@@ -123,7 +123,7 @@ function SocialProof() {
           <Reveal delay={120}>
             <h2 style={{
               margin: 0, fontFamily: 'Satoshi, sans-serif',
-              fontWeight: 900, fontSize: 'clamp(56px, 8vw, 112px)',
+              fontWeight: 900, fontSize: 'clamp(36px, 10vw, 112px)',
               letterSpacing: '-0.03em', lineHeight: 0.92, maxWidth: '14ch',
             }}>
               Ils m'ont fait<br/><span style={{ color: '#772CE8', fontStyle: 'italic', fontFamily: 'Satoshi, sans-serif' }}>confiance.</span>

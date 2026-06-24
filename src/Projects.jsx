@@ -83,7 +83,7 @@ function YoutubeEmbed({ url, ratio, title }) {
   return (
     <div
       style={{
-        position: 'relative', paddingBottom, height: 0,
+        position: 'relative', width: '100%', paddingBottom, height: 0,
         overflow: 'hidden', cursor: 'pointer', background: '#1A1C22',
       }}
       onClick={() => setActive(true)}
@@ -152,7 +152,7 @@ function ProjectBlock({ project, index }) {
       padding: '120px 0',
       borderTop: '1px solid rgba(254,254,254,0.06)',
     }}>
-      <div style={{
+      <div className="fp-mobile-stack" style={{
         display: 'grid',
         gridTemplateColumns: '1.35fr 1fr',
         gap: 80,
@@ -160,7 +160,7 @@ function ProjectBlock({ project, index }) {
       }}>
         {/* Media side */}
         <Reveal>
-          <div style={{
+          <div className="fp-mobile-stack" style={{
             display: 'grid',
             gridTemplateColumns: mediaCols,
             gap: 16,
@@ -201,6 +201,7 @@ function ProjectBlock({ project, index }) {
           <Reveal delay={120}>
             <div style={{
               display: 'flex', alignItems: 'baseline', gap: 20, marginBottom: 32,
+              flexWrap: 'wrap', maxWidth: '100%',
             }}>
               <span style={{
                 fontFamily: 'Satoshi, sans-serif', fontWeight: 900, fontSize: 64,
@@ -213,7 +214,7 @@ function ProjectBlock({ project, index }) {
           <Reveal delay={220}>
             <h3 style={{
               margin: 0, fontFamily: 'Satoshi, sans-serif',
-              fontWeight: 900, fontSize: 'clamp(40px, 4vw, 56px)',
+              fontWeight: 900, fontSize: 'clamp(28px, 5vw, 56px)',
               letterSpacing: '-0.025em', lineHeight: 1, maxWidth: '14ch',
             }}>{project.title}</h3>
           </Reveal>
@@ -235,7 +236,7 @@ function ProjectBlock({ project, index }) {
 
           {/* KPI stats */}
           <Reveal delay={520}>
-            <div style={{
+            <div className="fp-mobile-stack" style={{
               display: 'grid', gridTemplateColumns: `repeat(${project.stats.length}, 1fr)`,
               gap: 24, marginTop: 48,
               borderTop: '1px solid rgba(254,254,254,0.1)',
@@ -289,7 +290,7 @@ function Projects() {
           <Reveal delay={120}>
             <h2 style={{
               margin: 0, fontFamily: 'Satoshi, sans-serif',
-              fontWeight: 900, fontSize: 'clamp(56px, 8vw, 112px)',
+              fontWeight: 900, fontSize: 'clamp(36px, 10vw, 112px)',
               letterSpacing: '-0.03em', lineHeight: 0.92, maxWidth: '14ch',
             }}>
               Projets en<br/><span style={{ color: '#772CE8', fontStyle: 'italic', fontFamily: 'Satoshi, sans-serif' }}>détail.</span>
